@@ -3,6 +3,7 @@ import { RouteObject, useRoutes } from 'react-router-dom';
 
 // ** Component Imports
 import homeRoutes from '../views/home/routes/homeRoutes';
+import authenticationRoutes from '../views/authentication/routes/authenticationRoutes';
 
 // ** Redux
 import { resetDialogContent } from '../store/dialogStore';
@@ -11,15 +12,13 @@ import { resetDialogContent } from '../store/dialogStore';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxHook';
 import ConfirmDialogCustom from '../utils/components/CustomConfirmDialog';
 
-const listRouters = [
-  ...homeRoutes,
-];
+const listRouters = [...homeRoutes, ...authenticationRoutes];
 
 const RouterComponent = () => {
   const dispatch = useAppDispatch();
 
   // ** Redux States
-  const { dialogContent } = useAppSelector((store:any) => store.dialog);
+  const { dialogContent } = useAppSelector((store: any) => store.dialog);
   const listRoute: RouteObject[] = listRouters.map((item) => {
     return {
       path: item.path,
@@ -48,7 +47,6 @@ const RouterComponent = () => {
     closeDialog();
     dialogContent.onClickButtonRight?.();
   };
-
 
   // Render app routes and dialog
   return (
