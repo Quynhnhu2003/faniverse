@@ -1,270 +1,119 @@
 .loginForm {
-  &__group {
-    margin-bottom: 24px;
-    position: relative;
-    .error {
-      border-color: #ef4444;
-      background: rgba(239, 68, 68, 0.1);
-      animation: shake 0.5s ease-in-out;
+  width: 100%;
+  height: 90%;
+  padding: 24px;
+  display: flex;
+  max-width: 500px;
+  margin: 30px auto;
+  align-items: center;
+  border-radius: 14px;
+  flex-direction: column;
+  backdrop-filter: blur(24px);
+  justify-content: space-between;
+  background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.25),
+      rgba(255, 255, 255, 0.1)
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  &__header {
+    margin: 0;
+    font-weight: 600;
+    font-size: $large;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  &__form {
+    width: 100%;
+    display: flex;
+    gap: $small-text;
+    max-width: 500px;
+    flex-direction: column;
+    &__title {
+      margin: 0;
+      font-size: $regular;
+      margin-bottom: 12px;
+      text-transform: uppercase;
     }
-
-    .input-wrapper {
-      position: relative;
+    &__inputWrapper {
       display: flex;
+      gap: $extra-small;
       flex-direction: column;
-      input {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 12px;
-        padding: 16px 16px 8px 16px;
-        color: white;
-        font-size: 16px;
-        font-weight: 400;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        width: 100%;
-        outline: none;
-        backdrop-filter: blur(10px);
-        ::placeholder {
-          color: transparent;
-        }
-        :focus,
-        :valid {
-          border-color: #06b6d4;
-          background: rgba(255, 255, 255, 0.15);
-          transform: translateY(-2px);
-          box-shadow: 0 8px 25px rgba(6, 182, 212, 0.2);
-        }
-
-        :focus + label,
-        :valid + label {
-          transform: translateY(-8px) scale(0.85);
-          color: #06b6d4;
-          font-weight: 500;
-        }
-        :focus ~ .focus-border {
-          width: 100%;
-        }
-        label {
-          position: absolute;
-          left: 16px;
-          top: 16px;
-          color: rgba(255, 255, 255, 0.7);
-          font-size: 16px;
-          font-weight: 400;
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-          pointer-events: none;
-          transform-origin: left top;
-        }
+      label {
+        font-size: 14px;
+        text-align: start;
       }
-    }
-
-    .password-wrapper {
-      position: relative;
       input {
-        padding-right: 48px;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
       }
-      @media (max-width: 480px) {
+      .password {
+        height: 100%;
+        display: flex;
+        min-height: 32px;
+        position: relative;
         input {
-          padding-right: 44px;
+          z-index: 5;
+          width: 100%;
+          position: absolute;
+          ::placeholder {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+          }
+        }
+        .visibility {
+          top: 7px;
+          right: 5px;
+          z-index: 10;
+          border: none;
+          position: absolute;
+          background: transparent;
+          span {
+            font-size: $regular;
+          }
         }
       }
     }
 
-    .password-toggle {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
+    &__forgot {
+      margin: 12px 0 0;
+      font-size: $small-text;
       border: none;
-      cursor: pointer;
-      padding: 8px;
-      color: rgba(255, 255, 255, 0.6);
-      transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      z-index: 2;
-      :hover {
-        color: rgba(255, 255, 255, 0.9);
-      }
+      background-color: transparent;
+      text-align: start;
+      color: $body-primary-color;
     }
-
-    .eye-icon {
-      display: block;
-      width: 20px;
-      height: 20px;
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.6)' stroke-width='1.5'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M15 12a3 3 0 11-6 0 3 3 0 016 0z'/%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z'/%3e%3c/svg%3e");
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: background-image 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      .show-password {
-        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.6)' stroke-width='1.5'%3e%3cpath stroke-linecap='round' stroke-linejoin='round' d='M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 11-4.243-4.243m4.242 4.242L9.88 9.88'/%3e%3c/svg%3e");
-      }
-    }
-
-    .focus-border {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, #06b6d4, #6366f1);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    .form-options {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-      gap: 12px;
-      @media (max-width: 480px) {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-    }
-
-    .remember-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      input[type='checkbox'] {
-        display: none;
-      }
-      input[type='checkbox']:checked ~ .checkbox-label .checkmark {
-        background: #06b6d4;
-        border-color: #06b6d4;
-        transform: scale(1.1);
-      }
-      input[type='checkbox']:checked ~ .checkbox-label .checkmark::after {
-        content: '✓';
-        color: white;
-        font-size: 11px;
-        font-weight: bold;
-        animation: checkmarkPop 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      }
-    }
-
-    .checkbox-label {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 14px;
-      cursor: pointer;
-      user-select: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .checkmark {
-      width: 18px;
-      height: 18px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
+    &__btnSigin {
+      border: none;
+      font-weight: 500;
+      padding: 6px 12px;
       border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      flex-shrink: 0;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
+      color: $text-black-title;
+      background-color: $border-stroke-light;
     }
-
-    .forgot-password {
-      color: #06b6d4;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      ::after {
-        content: '';
-        position: absolute;
-        bottom: -2px;
-        left: 0;
-        width: 0;
-        height: 1px;
-        background: #06b6d4;
-        transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-      :hover::after {
-        width: 100%;
-      }
-      :hover {
-        color: white;
+    &__continue {
+      margin: 20px 0 0 0;
+      text-align: center;
+    }
+  }
+  &__options {
+    gap: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__item {
+      padding: 0;
+      border: none;
+      background-color: transparent;
+      img {
+        width: 60px;
+        height: auto;
+        @media (max-width: 400px) {
+          width: 48px;
+        }
       }
     }
-
-    .login-btn {
-      width: 100%;
-      margin-bottom: 24px;
-    }
-
-    .btn-text {
-      transition: opacity 0.3s ease;
-    }
-
-    .btn-loader {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 20px;
-      height: 20px;
-      border: 2px solid transparent;
-      border-top: 2px solid white;
-      border-radius: 50%;
-      opacity: 0;
-      animation: spin 1s linear infinite;
-      transition: opacity 0.3s ease;
-    }
-
-    .error-message {
-      display: block;
-      color: #ef4444;
-      font-size: 12px;
-      font-weight: 500;
-      margin-top: 6px;
-      margin-left: 4px;
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      background: rgba(239, 68, 68, 0.1);
-      padding: 4px 8px;
-      border-radius: 6px;
-      backdrop-filter: blur(10px);
-      .show {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-}
-
-@keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-}
-
-@keyframes checkmarkPop {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
   }
 }

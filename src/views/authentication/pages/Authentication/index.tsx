@@ -6,8 +6,10 @@ import styles from './index.module.scss';
 
 function Authentication() {
   return (
-    <div className={styles.loginContainer}>
-      <LoginForm />
+    <div className={styles.authenContainer}>
+      <div className={styles['authenContainer--login']}>
+        <LoginForm />
+      </div>
     </div>
   );
 }
