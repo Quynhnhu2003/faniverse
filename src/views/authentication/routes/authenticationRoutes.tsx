@@ -3,8 +3,9 @@ import { AuthenRoutePaths } from '../utils/enum/home';
 import LayoutAuthen from '../utils/components/layout';
 
 // ** Another Imports
-import { RouteObject } from 'react-router-dom';
+import Logout from '../pages/Logout';
 import LoginForm from '../pages/LoginForm';
+import { RouteObject } from 'react-router-dom';
 import RegisterForm from '../pages/RegisterForm';
 
 const authenticationRoutes: RouteObject[] = [
@@ -19,6 +20,10 @@ const authenticationRoutes: RouteObject[] = [
       {
         path: AuthenRoutePaths.REGISTER,
         element: <RegisterForm />,
+      },
+      {
+        path: AuthenRoutePaths.SIGN_OUT,
+        element: <Logout />,
       },
     ],
   },
