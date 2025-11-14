@@ -203,37 +203,3 @@
     }
   }
 }
-
-@keyframes shakeGlow {
-  0% {
-    transform: translateX(0);
-    stroke: #0062ff;
-  }
-  25% {
-    transform: translateX(4px);
-    stroke: #3399ff;
-  }
-  50% {
-    transform: translateX(-4px);
-    stroke: #66b2ff;
-  }
-  75% {
-    transform: translateX(4px);
-    stroke: #3399ff;
-  }
-  100% {
-    transform: translateX(0);
-    stroke: #0062ff;
-  }
-}
-
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}

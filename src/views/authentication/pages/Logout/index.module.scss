@@ -1,0 +1,74 @@
+.logout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 40px 30px;
+    text-align: center;
+    color: #fff;
+    max-width: 400px;
+    width: 90%;
+    animation: slideInUp 0.8s ease-out forwards;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    @media (max-width: 500px) {
+      padding: 30px 20px;
+    }
+    .icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+      animation: popIn 0.5s ease-out;
+      @media (max-width: 500px) {
+        font-size: 50px;
+      }
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      @media (max-width: 500px) {
+        font-size: 24px;
+      }
+    }
+
+    .message {
+      font-size: 16px;
+      margin-bottom: 24px;
+      line-height: 1.5;
+      @media (max-width: 500px) {
+        font-size: 14px;
+      }
+    }
+
+    .button {
+      background-color: #fff;
+      color: $icon-text-dark;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      @media (max-width: 500px) {
+        font-size: 14px;
+        padding: 10px 16px;
+      }
+      &:hover {
+        background-color: #f1f1f1;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

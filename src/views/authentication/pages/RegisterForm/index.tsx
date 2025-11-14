@@ -1,9 +1,9 @@
 // ** Styles Import
-import { useNavigate } from 'react-router-dom';
 import styles from './index.module.scss';
 
 // ** Another Import
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AuthenRoutePaths } from '../../utils/enum/home';
 
 function RegisterForm() {
@@ -95,6 +95,7 @@ function RegisterForm() {
             </span>
           </button>
         </div>
+
         <p className={styles.registerForm__form__continue}>or continue with</p>
 
         <div className={styles.registerForm__form__options}>
