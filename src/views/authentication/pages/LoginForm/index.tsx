@@ -88,7 +88,12 @@ function LoginForm() {
 
         <div className={styles.loginForm__form__register}>
           Don't have an account yet?{' '}
-          <button onClick={handleNavigate}>Register for free</button>
+          <button onClick={handleNavigate}>
+            Register for free
+            <span className='material-symbols-outlined'>
+              keyboard_double_arrow_right
+            </span>
+          </button>
         </div>
       </div>
 
