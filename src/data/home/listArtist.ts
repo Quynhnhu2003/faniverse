@@ -34,4 +34,9 @@ export const listArtists = [
       name: "Jeon Somi",
       url: '#jeon-somi',
     },
+    {
+      id: 8,
+      name: "iKon",
+      url: '#iKon',
+    },
   ];

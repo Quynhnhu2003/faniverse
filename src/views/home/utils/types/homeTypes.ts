@@ -77,7 +77,7 @@ export type Call = {
 export type Banner = {
   id: number;
   imageUrl: string;
-  action: Action | null;
+  url:string;
 };
 export type Category = {
   title: string;
