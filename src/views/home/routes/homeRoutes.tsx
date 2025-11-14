@@ -1,14 +1,14 @@
 // ** Components Imports
-import Home from "../pages/Home";
-import { HomeRoutePaths } from "../utils/enum/home";
-import LayoutHome from "../utils/components/layout";
+import Home from '../pages/HomeContainer';
+import { HomeRoutePaths } from '../utils/enum/home';
+import LayoutHome from '../utils/components/layout';
 
 // ** Another Imports
-import { RouteObject } from "react-router-dom";
+import { RouteObject } from 'react-router-dom';
 
 const homeRoutes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
     element: <LayoutHome />,
     children: [
       {
